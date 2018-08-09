@@ -8,4 +8,49 @@ vim
                url="jdbc:mysql://localhost:3306/javatest"/>
                
                :wq!
-               
+ 
+ <Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource"
+               maxTotal="100" maxIdle="30" maxWaitMillis="10000"
+               username="javauser" password="javadude" driverClassName="com.mysql.jdbc.Driver"
+               url="jdbc:mysql://localhost:3306/javatest"/>
+ 
+ 
+ 
+https://tomcat.apache.org/tomcat-9.0-doc/jndi-datasource-examples-howto.html
+
+next error in catlina.out is 
+
+java.sql.SQLException: Cannot load JDBC driver class 'com.mysql.jdbc.Driver'
+
+
+need to downloads sql connector jar file ---- https://dev.mysql.com/downloads/connector/j/
+
+https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.46.tar.gz
+tar -xf mysql.com/downloads/connector/
+cp mysql.com/downloads/connector to /root/tomcat9.0.10/lib/
+
+
+
+
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+
+
+tail-f catalina.out 
+error is :
+
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+
+end of 22nd class after this error  ___ Caused by: java.net.ConnectException: Connection refused (Connection refused)
+
+start 23 class 
+
+
+
+
+
+
+
+
+
+
+
