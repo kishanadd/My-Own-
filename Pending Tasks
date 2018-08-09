@@ -12,3 +12,4 @@ aws exam
 
 
 after webserver install and index.html need to check ssl (enable https in httpd 2.4--secure web server)
+cookbook dependencies 
