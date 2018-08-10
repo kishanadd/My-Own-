@@ -43,6 +43,44 @@ Caused by: java.net.ConnectException: Connection refused (Connection refused)
 end of 22nd class after this error  ___ Caused by: java.net.ConnectException: Connection refused (Connection refused)
 
 start 23 class 
+Build for the Apache HTTP Server
+  ================================
+
+  If you want to build mod_jk for the Apache HTTP Server
+  you need to locate the apxs tool coming with the Apache
+  HTTP server. If apxs is located in /usr/sbin/apxs, run:
+
+  ./configure --with-apxs=/usr/sbin/apxs
+  make
+
+  The resulting module file mod_jk.so of mod_jk will be
+  located in the directory apache-2.0 (for any version
+  of Apache 2.x).
+
+  Simply copy the file to your web server modules or libexec
+  directory.
+
+
+  Apache related configure arguments for tomcat-connectors
+  --------------------------------------------------------
+
+  --with-apxs[=FILE]
+  
+  webserver 
+  [root@webserver native]# ./configure
+
+
+error to install gcc 
+
+checking for target platform... unix
+no apache given
+no netscape given
+configure: error: Cannot find the WebServer
+
+
+now install yum install httpd-devel -y 
+
+
 
 
 
