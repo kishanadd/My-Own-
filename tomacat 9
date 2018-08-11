@@ -78,7 +78,10 @@ no netscape given
 configure: error: Cannot find the WebServer
 
 
-now install yum install httpd-devel -y 
+now install yum install httpd-devel -y
+
+
+
 
 
 
