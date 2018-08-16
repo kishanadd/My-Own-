@@ -1,0 +1,52 @@
+Step 1 
+
+[ec2-user@workstation ~]$ ssh-keygen -f ansb
+Generating public/private rsa key pair.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in ansb.
+Your public key has been saved in ansb.pub.
+The key fingerprint is:
+SHA256:FIA5uIeGTr+MuJqrdccMINyg7JSiqaVCmS85mCU7G9E ec2-user@workstation
+The key's randomart image is:
++---[RSA 2048]----+
+| . . o...        |
+|+ = +    .       |
+|+*.+ .  .        |
+|*=*..  .         |
+|B*E..   S        |
+|+Xo. +           |
+|@++.o +          |
+|oBo+ .           |
+|Xo               |
++----[SHA256]-----+
+[ec2-user@workstation ~]$ ls
+ansb  ansb.pub
+[ec2-user@workstation ~]$ mv ansb ansb.pem
+[ec2-user@workstation ~]$ ls
+ansb.pem  ansb.pub
+[ec2-user@workstation ~]$ cat ansb.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDfwKR7gwQsN914yVtanoGM5JCRCfV0UOeku5EmMGuDgwOlxRr7xXTC1tlF5tVnOo0O2Cc/whk1FTOdeEGaDajF5TmGVYFa4mBTC0x+S2OyY0skZP7MJq+KCNtpqm/8EudLVYZjXreqPlmQZqNBIJqoyf3l9ulHMSxI9z3RSCxHCpe6r4i7cTo0NOaA7/Ps+EnXxMD9m5bHYRCUpRzBSxgSASp2u3Igk73LAVZ1wgI0FjdIjUkzBB53qiEcFA/0+x1mvkrSVwq22Ue2u+k8+sHzcDruNTCFk+cwY1s0eoOH9zrWmdF5oB/1dv4CW4k6VFKBKMeQe/a2oji5WVk+R6ij ec2-user@workstation
+
+
+Step 2
+
+
+
+[ec2-user@workstation ~]$ ssh -i ansb.pem -l ec2-user node1
+The authenticity of host 'node1 (10.142.0.6)' can't be established.
+ECDSA key fingerprint is SHA256:euYJv0nIFPUydVWyd7dwk0z/HUHMCJO8rCQUt50RbwM.
+ECDSA key fingerprint is MD5:c3:35:68:e3:11:5d:e4:ee:40:6e:66:06:27:c9:3c:b3.
+Are you sure you want to continue connecting (yes/no)? y
+Please type 'yes' or 'no': yes
+Warning: Permanently added 'node1,10.142.0.6' (ECDSA) to the list of known hosts.
+Last login: Thu Aug 16 03:57:33 2018 from cpc89770-stok19-2-0-cust152.1-4.cable.virginm.net
+[ec2-user@node1 ~]$ logout
+
+step3 
+
+[ec2-user@workstation ~]$ vi hosts
+[ec2-user@workstation ~]$ ansible -i hosts all --private-key=ansb.pem -m ping
+node1 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
