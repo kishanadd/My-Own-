@@ -32,3 +32,16 @@ ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that 
 MariaDB [(none)]> 
 
 
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use studentapp;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [studentapp]> showtables;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'showtables' at line 1
+MariaDB [studentapp]> 
+
+
+
