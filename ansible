@@ -50,3 +50,6 @@ step3
 node1 | SUCCESS => {
     "changed": false, 
     "ping": "pong"
+    
+    
+    ansible-playbook -i /opt/hosts -u ec2-user --private-key /opt/ec2-user.pem play/sample.yml
