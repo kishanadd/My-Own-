@@ -1,0 +1,3 @@
+mvn sonar:sonar \
+  -Dsonar.host.url=http://35.185.106.88:9000 \
+  -Dsonar.login=312bd910f3b65c96fe4c7d983a45965359a5841e
