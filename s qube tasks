@@ -28,3 +28,16 @@ Jenkins Parameterized Trigger plugin v2.35.2 failed to load. Fix this plugin fir
 selenium -- 
 
 suacelabs access key -- 47835e28-8668-4dd4-a03e-f28a32633730
+
+
+Register a new account in
+http://saucelabs.com/
+
+mvn clean install "-Dremote=true" "-DseleniumGridURL=http://USERNAME:47835e28-8668-4dd4-a03e-f28a32633730@ondemand.saucelabs.com:80/wd/hub"
+"-Dplatform=Windows" "-Dbrowser=Chrome" "-Dbrowserversion=68" "-Doverwrite.binaries=true"
+
+
+Check google chorme version on settings
+Google Chrome
+Google Chrome is up to date
+Version 68.0.3440.106 (Official Build) (64-bit)
