@@ -1,3 +1,30 @@
 mvn sonar:sonar \
   -Dsonar.host.url=http://35.185.106.88:9000 \
   -Dsonar.login=312bd910f3b65c96fe4c7d983a45965359a5841e
+  
+  THIS WRITTEN @ BULID - INVOKE MAVEN LIKE BELOW WITH A PRIVATE IP INSTEAD
+   sonar:sonar -Dsonar.host.url=http://10.142.0.7:9000 -Dsonar.login=312bd910f3b65c96fe4c7d983a45965359a5841e
+
+Pipeline plugline install Error 
+
+Manage Jenkins
+Correct
+Dependency errors:
+
+Some plugins could not be loaded due to unsatisfied dependencies. Fix these issues and restart Jenkins to restore the functionality provided by these plugins.
+
+Conditional BuildStep version 1.3.6
+maven-plugin v2.13 is missing. To fix, install v2.13 or later.
+Downstream dependency errors:
+
+These plugins failed to load because of one or more of the errors above. Fix those and these plugins will load again.
+
+Parameterized Trigger plugin version 2.35.2
+Conditional BuildStep v1.3.6 failed to load. Fix this plugin first.
+Build Pipeline Plugin version 1.5.8
+Jenkins Parameterized Trigger plugin v2.35.2 failed to load. Fix this plugin first.
+
+
+selenium -- 
+
+suacelabs access key -- 47835e28-8668-4dd4-a03e-f28a32633730
