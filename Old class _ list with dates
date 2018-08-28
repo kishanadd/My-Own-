@@ -14,7 +14,7 @@ class 35 -- jenkins 02
 class 36 -- maven start
 class 37 -- sonar cube & jecking cloud Instances job
 class 38 -- U/I Testing Job -Jenkinks pipeline
-class 39 --UAT Testing Job -Jenkinks pipeline
+class 39 --UAT Testing Job -vunareability scans Jenkinks pipeline
 class 40 -- API testing 
 class 41 --   -Jenkinks pipeline
 class 42 --deply -uplaoad artifacts war file & nexus part1
