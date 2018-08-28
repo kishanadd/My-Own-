@@ -69,8 +69,8 @@ gcloud beta compute --project=my-project-second-211910 instances create stuwar -
 https://www.googleapis.com/auth/trace.append --image=mycentos7 
 --image-project=my-project-second-211910 --boot-disk-size=10GB --boot-disk-type=pd-standard --boot-disk-device-name=stuwar
 
-in jeckins UI
 
+Cloud instance
 
 COUNT=$(gcloud compute instances list | grep stu-test -c || true)
 if [ $COUNT -gt 0 ]; then 
@@ -83,3 +83,9 @@ if [ $COUNT -gt 0 ]; then
    exit1
 fi
 gcloud compute instances create stu-test --image=mycentos7 --image-project=my-project-second-211910 --zone us-east1-c
+
+
+in jeckins UI
+
+
+sed -i -e "s/IPADDRESS/$IPADDRESS/" src/test/java/framework/CrudStudent.java
