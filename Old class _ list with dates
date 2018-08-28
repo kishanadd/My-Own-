@@ -15,29 +15,29 @@ class 36 -- maven start
 class 37 -- sonar cube & jecking cloud Instances job
 class 38 -- U/I Testing Job -Jenkinks pipeline
 class 39 --UAT Testing Job -Jenkinks pipeline
-class 40 --
-class 41 --
-class 42 --
-class 43 --
-class 44 --
-class 45 --
-class 46 --
-class 47--
-class 48--
-class 49 --
-class 50 --
-class 51 --
-class 52 --
-class 53 --
-class 54 --
-class 55 --
-class 56 --
-class 57 --
-class 58 --
-class 59 --
-class 60--
-class 61--
-
+class 40 -- API testing 
+class 41 --   -Jenkinks pipeline
+class 42 --deply -uplaoad artifacts war file & nexus part1
+class 43 --nexus part2
+class 44 -- Terraform intro release management pending for later
+class 45 --chef intro
+class 46 --chef server installations cookbook to a node 
+class 47--chef cookbooks for actually requiremts      find out list of files promblem
+class 48--chef
+class 49 --data bags
+class 50 --chef envirments 
+class 51 --Terraform code 
+class 52 --docker basics 
+class 53 --docker images - application contianer -tomcat connecting to datebase
+class 54 --docker ends 
+class 55 -- Kubernetes start &  pods and replecation controllers
+class 56 --Kubernetes deployment
+class 57 -- monitring starts Nagios os level monitoring & log level monitoring (SAAS services New reliac or  24/7 
+- not need to have server for monitoring)
+class 58 -- Nagios continuation & elk1
+class 59 -- ELK2
+class 60-- jenkins pipelies continuation 
+class 61--jenkins pipelies - Docker CI/CD 
 class 62-- CI/CD in AWS 
 
 New class :
