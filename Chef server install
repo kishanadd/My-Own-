@@ -30,3 +30,4 @@ ie DB server
 
 on workstation
 knife bootstarp ec2-user@dbserver -N dbserver
+knife bootstrap ec2-user@dbserver -N dbserver -i ../../newdev.pem --sudo
