@@ -1,0 +1,11 @@
+chef-server-ctl reconfigure
+ chef-server-ctl user-create admin Admin User chefadmin@student 'PASSWORD' --filename /opt/admin.pem
+ 
+ chef-server-ctl org-create student 'Student Project' --association_user admin --filename /opt/student.pem
+ 
+ chef-server-ctl install chef-manage
+ chef-server-ctl reconfigure
+
+
+ chef-manage-ctl reconfigure
+ 
