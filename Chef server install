@@ -6,7 +6,27 @@ chef-server-ctl reconfigure
  chef-server-ctl user-create admin Admin User chefadmin@student.com 'password' --filename /opt/admin.pem
  
  chef-server-ctl org-create student 'Student Project' --association_user admin --filename /opt/student.pem
- chef-server-ctl install chef-manage
- chef-server-ctl reconfigure
- chef-manage-ctl reconfigure
+ web console
  
+ chef-server-ctl install chef-manage
+
+chef-server-ctl reconfigure
+ chef-manage-ctl reconfigure
+#####################
+On workstation 
+upload download kit fro web GUI
+unzip file , 
+knife node list 
+knife ssl fetch
+knife node list 
+
+
+
+#########################
+
+
+node creation now for chef 
+ie DB server
+
+on workstation
+knife bootstarp ec2-user@dbserver -N dbserver
