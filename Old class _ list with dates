@@ -24,7 +24,7 @@ class 45 --chef intro
 class 46 --chef server installations cookbook to a node 
 class 47--chef cookbooks for actually requiremts      find out list of files promblem
 class 48--chef
-class 49 --data bags
+class 49 -- chef data bags
 class 50 --chef envirments 
 class 51 --Terraform code 
 class 52 --docker basics 
