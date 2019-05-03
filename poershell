@@ -1,3 +1,6 @@
+
+Download Visual Studio solution and sample images.
+
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 
 $url = "https://github.com/linuxacademy/content-az-300-lab-repos/blob/master/create-an-azure-web-app/LA_PhotoStor.zip?raw=true"
@@ -24,3 +27,75 @@ Remove-Item -Path $zipfile2
 #
 
 
+
+Deploy an Linux App Service Plan using the Azure Portal
+The first two web apps will be simple, one-page designs. To demonstrate the flexibility of Azure Web Apps, we will deploy these on an App Service Plan based on Linux (This is Linux Academy, after all!).
+
+In the Azure Portal, click the Green + icon at the top-left hand of the screen. Search for and click on App Service Plan. Create the App Service Plan with the following settings:
+
+Name: Choose a name for your App Service Plan. Use something like ASP-XXXXX-Linux, where XXXXX represents the five character suffix of the lab resources (See the VM name for an example).
+Subscription: Leave as-is.
+Resource Group: Use existing, choose lab resource group.
+Operating System: Linux
+Location: South Central US
+Pricing Tier: S1 Standard
+help
+Deploy a Web App using the Azure CLI
+It's time to deploy an Azure Web App. This time, we'll use the Azure CLI.
+
+Let's set up Cloud Shell by clicking the Cloud Shell button in the top-right hand corner of the screen:
+
+Azure Cloud Shell
+
+Set up Azure Cloud Shell for Bash using the Advanced Settings. Use the existing subscription, resource group, and storage account. If your storage account does not populate, make sure that the South Central US region is selected. For the file share, choose Create new and specify cloudshell as the new file share.
+
+Deploy your web app in the same App Service plan as before using the following commands:
+
+rgName=$(az group list --query '[].{name:name}' --output tsv)
+aspName=$(az appservice plan list --query '[].{name:name}' --output tsv)
+az webapp create --resource-group $rgName --plan $aspName --name justanotherwebpp2 --runtime "PHP|7.0"
+#
+Test the web page using a web browser (don't forget to use the URL of the new Web App).
+
+help
+Deploy a second web app using Visual Studio
+Up until now, we've only deployed simple, one-page Web Apps. In this task, things are going to get a lot more fun. We are now going to deploy a fully functional web application that will allow us to upload images into Azure Blob Storage. Since the backend code was written in ASP.NET, we will have to deploy a second App Service Plan, this time running on Windows.
+
+The following steps will be completed in the Azure Portal
+In the Azure Portal, click the Green + icon at the top-left hand of the screen. Search for and click on Web App. Create the Web App with the following settings:
+
+Name: Choose a name for your Web App. Recommendation: Use something like WebApp2-XXXXX, where XXXXX represents the five character suffix of your lab resources (See your VM name for an example).
+
+Subscription: Leave as-is.
+
+Resource Group: Use existing, choose lab resource group.
+
+Operating system: Windows
+
+Publish: Code
+
+Pricing Tier: S1 Standard
+
+App Service Plan: Create a new one with the following settings:
+
+Name: Choose a name for your App Service Plan. Use something like ASP-XXXXX-Windows*, where XXXXX represents the five character suffix of your lab resources (See your VM name for an example).
+Subscription: Leave as-is.
+Resource Group: Use existing, choose lab resource group.
+Operating system: Windows
+Location: Central US
+Pricing Tier: S1 Standard
+Note: The location for the Windows App Service Plan must be different from the location of the Linux App Service Plan, most likely South Central US. Before clicking create, click the Web Application Insights section and choose disable.
+
+Note: The next steps will all be completed on the VM.
+
+Open the solution (.sln) file that you downloaded in Step 2 in Visual Studio 2017. When prompted, sign in to your lab (the lab, not the VM) account using the credentials above.
+Right-click the PhotoStor project and click Publish.
+Choose Azure App Service and Select Existing, then click Publish.
+Expand the lab resource group and click the newly-created Web App. Then click OK.
+Visual Studio will publish the Web App and open it in a web browser when complete. You will see a site that looks like this:
+
+PhotoStor
+
+Note: Do not test the web app at this time!
+
+Further configuration is necessary for the Web App to function properly
