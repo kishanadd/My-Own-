@@ -1,0 +1,58 @@
+You can autoscale Deployments based on CPU utilization of Pods using kubectl autoscale or from the GKE Workloads menu in GCP Console.
+
+KUBECTL AUTOSCALECONSOLE
+kubectl autoscale creates a HorizontalPodAutoscaler (or HPA) object that targets a specified resource (called the scale target) and scales it as needed. The HPA periodically adjusts the number of replicas of the scale target to match the average CPU utilization that you specify.
+
+Note: Your object's Pod template can include a resources field that specifies a CPU utilization request for each Pod. To learn more about making resource requests for Pods and containers, refer to Managing Compute Resources for Containers
+When you use kubectl autoscale, you specify a maximum and minimum number of replicas for your application, as well as a CPU utilization target. For example, to set the maximum number of replicas to six and the minimum to four, with a CPU utilization target of 50% utilization, run the following command:
+
+kubectl autoscale deployment my-app --max 6 --min 4 --cpu-percent 50
+In this command, the --max flag is required. The --cpu-percent flag is the target CPU utilization over all the Pods. This command does not immediately scale the Deployment to six replicas, unless there is already a systemic demand.
+
+After running kubectl autoscale, the HorizontalPodAutoscaler object is created and targets the application. When there a change in load, the object increases or decreases the application's replicas.
+
+Note: The maximum number of replicas is limited by the cluster's resources. If the cluster has a static number of available nodes, the cluster might run out of resources and prevent some replicated Pods from running. To learn about scaling your cluster, refer to Resizing a Cluster and Cluster Autoscaling.
+To see a specific HorizontalPodAutoscaler object in your cluster, run:
+
+kubectl get hpa [HPA_NAME]
+To see the HorizontalPodAutoscaler configuration:
+
+kubectl get hpa [HPA_NAME] -o yaml
+The output of this command is similar to the following:
+
+apiVersion: v1
+items:
+- apiVersion: autoscaling/v1
+  kind: HorizontalPodAutoscaler
+  metadata:
+    creationTimestamp: ...
+    name: [HPA_NAME]
+    namespace: default
+    resourceVersion: "664"
+    selfLink: ...
+    uid: ...
+  spec:
+    maxReplicas: 10
+    minReplicas: 1
+    scaleTargetRef:
+      apiVersion: apps/v1
+      kind: Deployment
+      name: [HPA_NAME]
+    targetCPUUtilizationPercentage: 50
+  status:
+    currentReplicas: 0
+    desiredReplicas: 0
+kind: List
+metadata: {}
+resourceVersion: ""
+selfLink: ""
+In this example output, the targetCPUUtilizationPercentage field holds the 50 percentage value passed in from the kubectl autoscale example.
+
+To see a detailed description of a specific HorizontalPodAutoscaler object in the cluster:
+
+kubectl describe hpa [HPA_NAME]
+You can modify the HorizontalPodAutoscaler by applying a new configuration file with kubectl apply, using kubectl edit, or using kubectl patch.
+
+To delete a HorizontalPodAutoscaler object:
+
+kubectl delete hpa [HPA_NAME]
