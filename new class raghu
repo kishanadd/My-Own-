@@ -13,5 +13,6 @@
 27 st --- jenkins slave , docker 
 
 29 jenkins in containers 
+39 jenkins pipeline as code
 40- jira code merge  
 41- cicd of application starts --- maven 
