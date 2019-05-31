@@ -17,3 +17,6 @@
 39 jenkins pipeline as code
 40- jira code merge  
 41- cicd of application starts --- maven 
+47-- code commit 
+48 --code aws codecommit 
+49 -- cloud watch
