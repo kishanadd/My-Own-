@@ -13,6 +13,8 @@
 27 st --- jenkins slave , docker 
 
 29 jenkins in containers 
+
+37  terraform
 38 jenkins slave and terraform 
 39 jenkins pipeline as code
 40- jira code merge  
